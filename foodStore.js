@@ -10,7 +10,7 @@ class FoodStoreScene extends Phaser.Scene {
     // declare this choices array first!
     this.foodItemChoices = [];
     this.foodItemSprites = [];
-    this.foodItemVoiceOverSFXTable = ["Eat_Sausage_SFX", "Eat_Popcorn_SFX", "Eat_Drink_SFX", 
+    this.foodItemVoiceOverSFXTable = ["Eat_Sausage_SFX", "Eat_Popcorn_SFX", "Eat_TutuKueh_SFX", 
                                       "Eat_CandyFloss_SFX", "Eat_ChickenWing_SFX", "Eat_SkeweredMeat_SFX"];
 
     // Create food Store BG
@@ -265,15 +265,8 @@ class FoodStoreScene extends Phaser.Scene {
     if (gameObject.foodItemID == this.customerChoice) {
 
       this.sound.play('Correct_SFX');
-
-      // hard coded for drinks
-      if (gameObject.foodItemID == 2) {
-        this.sound.play('Drink_SFX');
-      }
-      else {
-        this.sound.play('Eat_SFX');
-      }
-
+      this.sound.play('Eat_SFX');
+  
       gameObject.play(gameObject.eatenAnim);
       gameObject.disableInteractive();
       gameObject.eatenFlag = true;
